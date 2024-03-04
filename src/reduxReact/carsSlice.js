@@ -6,6 +6,7 @@ const carsSlice = createSlice({
   initialState: {
     items: [],
   },
+  reducers: {},
   extraReducers: builder => {
     builder.addCase(serviceGetAllCar.fulfilled, (state, action) => {
       state.items = action.payload;

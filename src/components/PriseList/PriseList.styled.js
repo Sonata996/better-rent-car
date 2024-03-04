@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Field } from 'formik';
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   transition: 0.2s;
   margin: 0;
   box-sizing: border-box;

@@ -1,19 +1,19 @@
-import { NavLink } from 'react-router-dom';
+import { List, Link } from './NavigateHeader.styled.js';
 
 export const NavigateHeader = () => {
   return (
     <div>
-      <ul>
+      <List>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <NavLink to="/catalog">Catalog</NavLink>
+          <Link to="/catalog">Catalog</Link>
         </li>
         <li>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <Link to="/favorites">Favorites</Link>
         </li>
-      </ul>
+      </List>
     </div>
   );
 };
