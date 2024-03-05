@@ -1,4 +1,16 @@
-import { ConteinerImg, Heart, Img } from './CardCar.styled';
+import {
+  Card,
+  ConteinerImg,
+  ConteinerModal,
+  Conteinerinfo,
+  Heart,
+  Img,
+  LIstTags,
+  Paragraf,
+  Span,
+  Title,
+  UlElem,
+} from './CardCar.styled';
 
 export const CardCar = ({ infoCard }) => {
   const tegsArr = [
@@ -12,26 +24,27 @@ export const CardCar = ({ infoCard }) => {
   ];
 
   return (
-    <li>
+    <Card>
       <ConteinerImg>
         <Img src={infoCard.img} />
         <Heart />
       </ConteinerImg>
-      <div>
-        <div>
-          <h3>{infoCard.make}</h3>
-          <span>{infoCard.model}</span>
-          <span>{infoCard.year}</span>
-        </div>
 
-        <p>{infoCard.rentalPrice}</p>
-      </div>
-      <ul>
+      <Conteinerinfo>
+        <ConteinerModal>
+          <Title>
+            {infoCard.make} <Span>{infoCard.model}</Span>, {infoCard.year}
+          </Title>
+        </ConteinerModal>
+        <Paragraf>${infoCard.rentalPrice}</Paragraf>
+      </Conteinerinfo>
+
+      <LIstTags>
         {tegsArr.map(elem => (
-          <li key={tegsArr.indexOf(elem)}>{elem}</li>
+          <UlElem key={tegsArr.indexOf(elem)}>{elem}</UlElem>
         ))}
-      </ul>
+      </LIstTags>
       <button>Learn more</button>
-    </li>
+    </Card>
   );
 };
