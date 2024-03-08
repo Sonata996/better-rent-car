@@ -4,6 +4,7 @@ import { Layout } from 'components/Layout/Layout';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
+const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
 
 export const App = () => {
   return (
@@ -13,7 +14,7 @@ export const App = () => {
 
         <Route path="/catalog" element={<CatalogPage />} />
 
-        <Route path="/favorites" element={''} />
+        <Route path="/favorites" element={<FavoritesPage />} />
 
         <Route path="*" element={<Navigate />} />
       </Route>

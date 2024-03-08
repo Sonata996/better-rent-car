@@ -17,6 +17,14 @@ export const Img = styled.img`
   height: 268px;
 `;
 
+export const Checkbox = styled.input`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  opacity: 0;
+  cursor: pointer;
+`;
+
 export const Heart = styled(FiHeart)`
   position: absolute;
   top: 16px;
