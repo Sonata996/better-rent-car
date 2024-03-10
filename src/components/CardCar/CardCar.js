@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Card,
   ConteinerImg,
-  ConteinerModal,
+  ConteinerModel,
   Conteinerinfo,
   Img,
   LIstTags,
@@ -17,6 +17,7 @@ import { addFavorite } from 'reduxReact/favoritSlise';
 
 export const CardCar = ({ infoCard }) => {
   const cardList = useSelector(state => state.cars.items);
+  const favoritList = useSelector(state => state.favorites);
   const disPatch = useDispatch();
 
   const tegsArr = [
@@ -30,11 +31,10 @@ export const CardCar = ({ infoCard }) => {
   ];
 
   const handlerChenge = event => {
-    const result = cardList.filter(elem => elem.id === event);
-    console.log(result);
-    console.log(event);
-    if (result) {
-      disPatch(addFavorite(result));
+    const [choiceElem] = cardList.filter(elem => elem.id === Number(event));
+    const checkIsFavorit = favoritList.filter(elem => elem !== choiceElem);
+    if (choiceElem.length) {
+      disPatch(addFavorite(choiceElem));
     }
   };
 
@@ -55,11 +55,11 @@ export const CardCar = ({ infoCard }) => {
       </ConteinerImg>
 
       <Conteinerinfo>
-        <ConteinerModal>
+        <ConteinerModel>
           <Title>
             {infoCard.make} <Span>{infoCard.model}</Span>, {infoCard.year}
           </Title>
-        </ConteinerModal>
+        </ConteinerModel>
         <Paragraf>${infoCard.rentalPrice}</Paragraf>
       </Conteinerinfo>
 

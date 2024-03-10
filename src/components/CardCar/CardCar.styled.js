@@ -43,7 +43,7 @@ export const Conteinerinfo = styled.div`
   max-height: 24px;
 `;
 
-export const ConteinerModal = styled.div`
+export const ConteinerModel = styled.div`
   display: flex;
 `;
 
