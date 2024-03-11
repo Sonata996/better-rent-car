@@ -13,11 +13,11 @@ import {
   Checkbox,
   Heart,
 } from './CardCar.styled';
-import { addFavorite } from 'reduxReact/favoritSlise';
+import { addFavorite, deleteFavorite } from 'reduxReact/favoritSlise';
 
 export const CardCar = ({ infoCard }) => {
   const cardList = useSelector(state => state.cars.items);
-  const favoritList = useSelector(state => state.favorites);
+  const favoritList = useSelector(state => state.favorites.items);
   const disPatch = useDispatch();
 
   const tegsArr = [
@@ -32,8 +32,13 @@ export const CardCar = ({ infoCard }) => {
 
   const handlerChenge = event => {
     const [choiceElem] = cardList.filter(elem => elem.id === Number(event));
-    const checkIsFavorit = favoritList.filter(elem => elem !== choiceElem);
-    if (choiceElem.length) {
+    const [checkIsFavorit] = favoritList.filter(
+      elem => elem.id === choiceElem.id
+    );
+
+    if (checkIsFavorit) {
+      disPatch(deleteFavorite(checkIsFavorit));
+    } else {
       disPatch(addFavorite(choiceElem));
     }
   };

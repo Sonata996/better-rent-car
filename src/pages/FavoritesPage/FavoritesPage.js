@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import { CardCar } from 'components/CardCar/CardCar';
 
 export default function FavoritesPage() {
-  const favoritList = useSelector(state => state.favorites);
-
+  const favoritList = useSelector(state => state.favorites.items);
+  console.log(favoritList);
   return (
     <div>
       <ul>
